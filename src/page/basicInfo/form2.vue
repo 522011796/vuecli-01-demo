@@ -1,8 +1,8 @@
 <template>
   <div>
     <el-table :data="tableData" border style="width: 100%" v-loading="listLoading">
-      <el-table-column prop="create_at" label="日期" :formatter="formatDate"></el-table-column>
-      <el-table-column prop="author.loginname" label="发布者"></el-table-column>
+      <el-table-column width="200px" prop="create_at" label="日期" :formatter="formatDate"></el-table-column>
+      <el-table-column width="300px" prop="author.loginname" label="发布者"></el-table-column>
       <el-table-column label="内容">
         <template slot-scope="scope">
           <router-link :to="'/basicInfo/form2/content/' + scope.row.id">{{scope.row.title}}</router-link>
@@ -11,6 +11,7 @@
     </el-table>
     <div align="center">
       <el-pagination
+        background
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
         :current-page="currentPage"
