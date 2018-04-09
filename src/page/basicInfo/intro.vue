@@ -4,7 +4,7 @@
       <el-button size="medium" type="primary" @click.native="handleAdd">新增</el-button>
     </div>
 
-    <el-table :data="tableData" border style="width: 100%">
+    <el-table :data="tableData" border style="width: 100%" v-loading="listLoading">
       <el-table-column prop="birth" label="日期"></el-table-column>
       <el-table-column prop="name" label="姓名"></el-table-column>
       <el-table-column prop="sexval" label="性别" :formatter="formatSex"></el-table-column>
@@ -118,6 +118,7 @@
         }],
         dialogFormVisible: false,//新增界面是否显示
         addLoading: false,
+        listLoading: false,
         addFormRules: {
           name: [
             { required: true, message: '请输入姓名', trigger: 'blur' }
@@ -195,7 +196,6 @@
               //Object.assign 为es6的对象处理方式，不支持IE8-的浏览器，目的是将对象的参数取出来重新组装
               let para = Object.assign({}, this.addForm);
               //para.birth = (!para.birth || para.birth == '') ? '' : this.$moment(para.birth).format('X');
-              console.log(para);
               //模拟添加数据
               this.tableData.push({
                 id: this.tableData.length+1,

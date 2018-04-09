@@ -23,7 +23,12 @@
             </template>
             <router-link to="/basicInfo/intro">
               <el-menu-item index="0">
-                校园简介
+                静态表单
+              </el-menu-item>
+            </router-link>
+            <router-link to="/basicInfo/form2">
+              <el-menu-item index="0">
+                动态表单
               </el-menu-item>
             </router-link>
           </el-submenu>

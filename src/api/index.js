@@ -36,7 +36,6 @@ function apiAxios (method, url, params, success, failure) {
   if (params) {
     params = filterNull(params)
   }
-  console.log(params);
   axios({
     method: method,
     url: url,
