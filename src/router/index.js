@@ -17,11 +17,10 @@ export default new Router({
       component: Intro
     }, {
       path: '/basicInfo/form2',
-      component: Form2,
-      children: [{
-        path: '/content/:id',
-        component: Content
-      }]
+      component: Form2
+    }, {
+      path: '/basicInfo/form2/content/:id',
+      component: Content
     }
   ]
 })

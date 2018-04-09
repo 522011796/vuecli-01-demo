@@ -9,7 +9,8 @@
         </template>
       </el-table-column>
     </el-table>
-    <div align="center">
+    <router-view></router-view>
+    <div align="right">
       <el-pagination
         background
         @size-change="handleSizeChange"
