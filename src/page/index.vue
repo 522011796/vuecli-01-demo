@@ -17,6 +17,10 @@
       4、时间转时间戳：
       <span style="color:#67C23A">{{$moment("2018-4-9 10:25:32").format('X')}}</span>
     </div>
+    <div>
+      5、以下是语言包测试：
+      <span style="color:#67C23A">使用方法为$t('m.test')，输出：{{$t('m.test')}}</span>
+    </div>
   </div>
 </template>
 <script>

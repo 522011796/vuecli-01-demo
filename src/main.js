@@ -7,6 +7,17 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import 'font-awesome/css/font-awesome.css'
 import moment from 'moment';
+import VueI18n from 'vue-i18n'
+
+//国际化
+Vue.use(VueI18n);
+const i18n = new VueI18n({
+  locale: 'zh-CN',    // 语言标识
+  //this.$i18n.locale // 通过切换locale的值来实现语言切换
+  messages: {
+    'zh-CN': require('./lang/zh'),   // 中文语言包
+  }
+});
 
 //时间格式化插件
 Vue.prototype.$moment = moment
@@ -28,6 +39,7 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  i18n,  //国际化
   router,
   components: { App },
   template: '<App/>'
