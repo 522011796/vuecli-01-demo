@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # vuecli-00-demo
 
 > A Vue.js project
@@ -29,4 +28,3 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 =======
 # managerAdmin
 vuejs demo
->>>>>>> c4ee38a0532b0d209a4814de46d0ff002c555b48
