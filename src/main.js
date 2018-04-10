@@ -7,7 +7,11 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import 'font-awesome/css/font-awesome.css'
 import moment from 'moment';
-import VueI18n from 'vue-i18n'
+import VueI18n from 'vue-i18n';
+import Validation from './validate/validation';
+
+//表单验证插件
+Vue.use(Validation);
 
 //国际化
 Vue.use(VueI18n);

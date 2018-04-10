@@ -31,6 +31,11 @@
                 动态表单
               </el-menu-item>
             </router-link>
+            <router-link to="/basicInfo/form3">
+              <el-menu-item index="0">
+                表单验证
+              </el-menu-item>
+            </router-link>
           </el-submenu>
         </el-menu>
       </el-col>
