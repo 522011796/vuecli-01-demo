@@ -60,7 +60,7 @@
           this.totalCount = r.data.length;
         })
       },
-      //每页显示数据量变更
+      //每页显示数据量变更.
       handleSizeChange: function(val) {
         this.listLoading = true;
         this.pagesize = val;
