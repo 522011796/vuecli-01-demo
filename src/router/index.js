@@ -5,6 +5,7 @@ import Content from '@/page/content'
 import Intro from '@/page/basicInfo/intro'
 import Form2 from '@/page/basicInfo/form2'
 import Form3 from '@/page/basicInfo/form3'
+import Form4 from '@/page/basicInfo/form4'
 
 Vue.use(Router)
 
@@ -22,6 +23,9 @@ export default new Router({
     }, {
       path: '/basicInfo/form3',
       component: Form3
+    }, {
+      path: '/basicInfo/form4',
+      component: Form4
     }, {
       path: '/basicInfo/form2/content/:id',
       component: Content

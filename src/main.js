@@ -9,6 +9,7 @@ import 'font-awesome/css/font-awesome.css'
 import moment from 'moment';
 import VueI18n from 'vue-i18n';
 import Validation from './validate/validation';
+import pagination from './assets/plugin/pagination';
 
 //表单验证插件
 Vue.use(Validation);

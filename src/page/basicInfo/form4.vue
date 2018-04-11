@@ -9,18 +9,8 @@
         </template>
       </el-table-column>
     </el-table>
-    <router-view></router-view>
     <div align="right">
-      <el-pagination
-        background
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-        :current-page="currentPage"
-        :page-sizes="[10, 20, 30, 40]"
-        :page-size="pagesize"
-        layout="total, sizes, prev, pager, next, jumper"
-        :total="totalCount">
-      </el-pagination>
+      <el-table-page @pagination="pagination" :count="count"></el-table-page>
     </div>
   </div>
 </template>
@@ -28,6 +18,7 @@
   export default {
     data() {
       return {
+        totalCount:'',
         tableData: [],
         listLoading: false,
         //默认每页数据量
@@ -37,7 +28,7 @@
         //查询的页码
         start: 1,
         //默认数据总数
-        totalCount: 0,
+        count: 0,
       }
     },
     created () {
@@ -57,21 +48,14 @@
         })
       },
       getCount() {
-        this.$api.get('topics',null, r => {
-          this.totalCount = r.data.length;
+        this.listLoading = true;
+        this.$api.get('topics', null, r => {
+          this.count = r.data.length;
         })
       },
-      //每页显示数据量变更.
-      handleSizeChange: function(val) {
-        this.pagesize = val;
-        this.getData(this.currentPage, this.pagesize);
-      },
-
-      //页码变更
-      handleCurrentChange: function(val) {
-        this.currentPage = val;
-        this.getData(this.currentPage, this.pagesize);
-      },
+      pagination: function(index,pagesize) {
+        this.getData(index, pagesize);
+      }
     }
   }
 </script>

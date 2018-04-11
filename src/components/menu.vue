@@ -36,6 +36,11 @@
                 表单验证
               </el-menu-item>
             </router-link>
+            <router-link to="/basicInfo/form4">
+              <el-menu-item index="0">
+                分页表哥
+              </el-menu-item>
+            </router-link>
           </el-submenu>
         </el-menu>
       </el-col>
