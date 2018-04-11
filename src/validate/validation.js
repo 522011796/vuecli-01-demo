@@ -31,6 +31,27 @@ Validation.install = function (Vue, options) {
         case 'email':
           rules.push({ type: 'email', message: '请输入正确的邮箱地址', trigger: 'blur'  });
           break;
+        case 'phone':
+          rules.push({pattern: /^1[34578]\d{9}$/, message: '请输入正确的手机号码', trigger: 'blur'  });
+          break;
+        case 'card':
+          rules.push({pattern: /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/, message: '请输入15或者18位身份证号码', trigger: 'blur'  });
+          break;
+        case 'num':
+          rules.push({pattern: /^[1-9]\d*$/, message: '请输入非0的整数', trigger: 'blur'  });
+          break;
+        case 'float2':
+          rules.push({pattern: /^([1-9]+[0-9]*(\.[0-9]{1,2})?|0\.[1-9][0-9]?|0\.0[1-9])$/, message: '正整数且最多两位小数', trigger: 'blur'  });
+          break;
+        case 'pwd':
+          rules.push({pattern: /^[^\u4e00-\u9fa5\s]{6,20}$/, message: '6-20位任意字符', trigger: 'blur'  });
+          break;
+        case 'mac':
+          rules.push({pattern: /^[A-F0-9]{2}(-[A-F0-9]{2}){5}$|^[A-F0-9]{2}(:[A-F0-9]{2}){5}$/, message: '请输入正确的mac地址', trigger: 'blur'  });
+          break;
+        case 'ip':
+          rules.push({pattern: /^((([01]?[0-9]{1,2})|(2[0-4][0-9])|(25[0-5]))[.]){3}(([0-1]?[0-9]{1,2})|(2[0-4][0-9])|(25[0-5]))$/, message: '请输入正确的ip地址', trigger: 'blur'  });
+          break;
         default:
           rule.push({});
           break;
