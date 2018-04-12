@@ -7,6 +7,7 @@
       <el-col :span="24" v-if="menu == 'menu' ? true : false">
         <el-menu
           router
+          :unique-opened="true"
           :default-active="activeIndex"
           class="el-menu-vertical-demo"
           @open="handleOpen"

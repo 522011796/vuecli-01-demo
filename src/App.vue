@@ -40,15 +40,15 @@
         isCollapse: false,
         marginLeft: '200px',
         styleMenuObject: {
-          height: document.documentElement.clientHeight-61+'px',
+          height: document.documentElement.clientHeight-63+'px',
         },
         styleComentObject: {
-          'min-height': document.documentElement.clientHeight-61-35-45+'px',
+          'min-height': document.documentElement.clientHeight-70-40+'px',
           background:'#ffffff',
           padding:'5px 0px'
         },
         styleContentObject: {
-          height: document.documentElement.clientHeight-61-36+'px',
+          height: document.documentElement.clientHeight-63+'px',
           'overflow-y':'auto',
         }
       };
