@@ -4,9 +4,10 @@
       <div v-bind:style="{width:asideWidth}" style="text-align: center;background: #f0f0f0" @click="closeAndOpen">
         <i class="fa fa-reorder"></i>
       </div>
-      <el-col :span="24">
+      <el-col :span="24" v-if="menu == 'menu' ? true : false">
         <el-menu
-          default-active="1"
+          router
+          :default-active="activeIndex"
           class="el-menu-vertical-demo"
           @open="handleOpen"
           @close="handleClose">
@@ -22,23 +23,65 @@
               <span>基础信息</span>
             </template>
             <router-link to="/basicInfo/intro">
-              <el-menu-item index="0">
+              <el-menu-item index="1-1">
                 静态表单
               </el-menu-item>
             </router-link>
             <router-link to="/basicInfo/form2">
-              <el-menu-item index="0">
+              <el-menu-item index="1-2">
                 动态表单
               </el-menu-item>
             </router-link>
             <router-link to="/basicInfo/form3">
-              <el-menu-item index="0">
+              <el-menu-item index="1-3">
                 表单验证
               </el-menu-item>
             </router-link>
             <router-link to="/basicInfo/form4">
-              <el-menu-item index="0">
+              <el-menu-item index="1-4">
                 分页表格
+              </el-menu-item>
+            </router-link>
+          </el-submenu>
+        </el-menu>
+      </el-col>
+
+      <el-col :span="24" v-if="menu == 'menu2' ? true : false">
+        <el-menu
+          router
+          default-active="2"
+          class="el-menu-vertical-demo"
+          @open="handleOpen"
+          @close="handleClose">
+          <router-link to="/">
+            <el-menu-item index="2">
+              <i class="fa fa-home fa-fw"></i>
+              首页2
+            </el-menu-item>
+          </router-link>
+          <el-submenu index="3">
+            <template slot="title">
+              <i class="fa fa-file fa-fw"></i>
+              <span>基础信息2</span>
+            </template>
+            <router-link to="/basicInfo/intro">
+              <el-menu-item index="3-1">
+                静态表单2
+              </el-menu-item>
+            </router-link>
+            <router-link to="/basicInfo/form2">
+              <el-menu-item index="3-2">
+                动态表单2
+              </el-menu-item>
+            </router-link>
+            <router-link to="/basicInfo/form3">
+              <el-menu-item index="3-3">
+                表单验证2
+              </el-menu-item>
+            </router-link>
+            <router-link to="/basicInfo/form4">
+              <el-menu-item index="3-4">
+                分页表格2
               </el-menu-item>
             </router-link>
           </el-submenu>
@@ -86,11 +129,22 @@
 
 <script>
   export default {
+    props:['menu'],
     data() {
       return {
+        activeIndex:'0',
         isCollapse: false,
         asideWidth:'200px'
       };
+    },
+    watch: {
+      menu: function (val) {
+        if(val == 'menu'){
+          this.$router.push("/");
+        }else if(val == 'menu2'){
+          this.$router.push("/basicInfo/form2");
+        }
+      }
     },
     methods: {
       handleOpen(key, keyPath) {

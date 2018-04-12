@@ -1,11 +1,11 @@
 <template>
   <div class="mainLayout">
     <div>
-      <Header></Header>
+      <Header @chgMenu="chgMenu"></Header>
     </div>
     <div>
       <div v-bind:style="styleMenuObject" class="menu">
-        <Menu @chgLayout="chgLayout"></Menu>
+        <Menu @chgLayout="chgLayout" :menu="menu" :path="path"></Menu>
       </div>
       <div class="content" v-bind:style="{'marginLeft':marginLeft}">
         <div class="breadcrumb">
@@ -30,11 +30,13 @@
 </template>
 <script>
   import Header from './components/header'
-  import Menu from './components/menu'
+  import Menu from './components/menu/menu'
   export default {
     components: { Header,Menu },
     data() {
       return {
+        path:'home',
+        menu:'menu',
         isCollapse: false,
         marginLeft: '200px',
         styleMenuObject: {
@@ -55,6 +57,9 @@
       //通过子组件通信父组件对父组件的相关内容进行调整
       chgLayout: function(item) {
         this.marginLeft = item ? '60px' : '200px';
+      },
+      chgMenu: function (val) {
+        this.menu = val;
       }
     }
   }
