@@ -42,6 +42,11 @@
                 分页表格
               </el-menu-item>
             </router-link>
+            <router-link to="/basicInfo/tab">
+              <el-menu-item index="1-5">
+                标签页
+              </el-menu-item>
+            </router-link>
           </el-submenu>
         </el-menu>
       </el-col>
@@ -139,6 +144,7 @@
     },
     watch: {
       menu: function (val) {
+        //这里是测试用，实际是读取菜单数据来设置
         if(val == 'menu'){
           this.$router.push("/");
         }else if(val == 'menu2'){

@@ -1,22 +1,29 @@
 <template>
   <div>
-    <div style="margin-bottom: 10px">
-      <el-button size="medium" type="primary" @click.native="handleAdd">新增</el-button>
+    <div class="breadcrumb">
+      <el-breadcrumb separator-class="el-icon-arrow-right">
+        <el-breadcrumb-item>基础信息</el-breadcrumb-item>
+        <el-breadcrumb-item>静态表单</el-breadcrumb-item>
+      </el-breadcrumb>
     </div>
-
-    <el-table :data="tableData" border style="width: 100%" v-loading="listLoading">
-      <el-table-column prop="birth" label="日期"></el-table-column>
-      <el-table-column prop="name" label="姓名"></el-table-column>
-      <el-table-column prop="sexval" label="性别" :formatter="formatSex"></el-table-column>
-      <el-table-column prop="age" label="年龄"></el-table-column>
-      <el-table-column prop="addr" label="地址"></el-table-column>
-      <el-table-column label="操作">
-        <template slot-scope="scope">
-          <el-button size="small" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
-          <el-button type="danger" size="small" @click="handleDel(scope.$index, scope.row)">删除</el-button>
-        </template>
-      </el-table-column>
-    </el-table>
+    <div style="padding:0px 15px;">
+      <div style="margin-bottom: 10px;margin-top:10px;">
+        <el-button size="medium" type="primary" @click.native="handleAdd">新增</el-button>
+      </div>
+      <el-table :data="tableData" border style="width: 100%" v-loading="listLoading">
+        <el-table-column prop="birth" label="日期"></el-table-column>
+        <el-table-column prop="name" label="姓名"></el-table-column>
+        <el-table-column prop="sexval" label="性别" :formatter="formatSex"></el-table-column>
+        <el-table-column prop="age" label="年龄"></el-table-column>
+        <el-table-column prop="addr" label="地址"></el-table-column>
+        <el-table-column label="操作">
+          <template slot-scope="scope">
+            <el-button size="small" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+            <el-button type="danger" size="small" @click="handleDel(scope.$index, scope.row)">删除</el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
 
     <el-dialog title="收货地址" :visible.sync="dialogFormVisible">
       <el-form :model="addForm" label-width="80px" :rules="addFormRules" ref="addForm">

@@ -1,26 +1,32 @@
 <template>
   <div>
-    <el-table :data="tableData" border style="width: 100%" v-loading="listLoading">
-      <el-table-column width="200px" prop="create_at" label="日期" :formatter="formatDate"></el-table-column>
-      <el-table-column width="300px" prop="author.loginname" label="发布者"></el-table-column>
-      <el-table-column label="内容">
-        <template slot-scope="scope">
-          <router-link :to="'/basicInfo/form2/content/' + scope.row.id">{{scope.row.title}}</router-link>
-        </template>
-      </el-table-column>
-    </el-table>
-    <router-view></router-view>
-    <div align="right">
-      <el-pagination
-        background
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-        :current-page="currentPage"
-        :page-sizes="[10, 20, 30, 40]"
-        :page-size="pagesize"
-        layout="total, sizes, prev, pager, next, jumper"
-        :total="totalCount">
-      </el-pagination>
+    <el-breadcrumb separator-class="el-icon-arrow-right">
+      <el-breadcrumb-item>基础信息</el-breadcrumb-item>
+      <el-breadcrumb-item>动态表单</el-breadcrumb-item>
+    </el-breadcrumb>
+    <div style="padding:0px 15px;margin-top:10px;">
+      <el-table :data="tableData" border style="width: 100%" v-loading="listLoading">
+        <el-table-column width="200px" prop="create_at" label="日期" :formatter="formatDate"></el-table-column>
+        <el-table-column width="300px" prop="author.loginname" label="发布者"></el-table-column>
+        <el-table-column label="内容">
+          <template slot-scope="scope">
+            <router-link :to="'/basicInfo/form2/content/' + scope.row.id">{{scope.row.title}}</router-link>
+          </template>
+        </el-table-column>
+      </el-table>
+      <router-view></router-view>
+      <div align="right">
+        <el-pagination
+          background
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page="currentPage"
+          :page-sizes="[10, 20, 30, 40]"
+          :page-size="pagesize"
+          layout="total, sizes, prev, pager, next, jumper"
+          :total="totalCount">
+        </el-pagination>
+      </div>
     </div>
   </div>
 </template>

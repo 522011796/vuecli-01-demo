@@ -8,14 +8,14 @@
         <Menu @chgLayout="chgLayout" :menu="menu" :path="path"></Menu>
       </div>
       <div class="content" v-bind:style="{'marginLeft':marginLeft}">
-        <div class="breadcrumb">
+        <!--<div class="breadcrumb">
           <el-breadcrumb separator-class="el-icon-arrow-right">
             <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-            <el-breadcrumb-item>活动管理</el-breadcrumb-item>
-            <el-breadcrumb-item>活动列表</el-breadcrumb-item>
-            <el-breadcrumb-item>活动详情</el-breadcrumb-item>
+            <el-breadcrumb-item></el-breadcrumb-item>
+            <el-breadcrumb-item></el-breadcrumb-item>
+            <el-breadcrumb-item></el-breadcrumb-item>
           </el-breadcrumb>
-        </div>
+        </div>-->
         <div v-bind:style="styleContentObject">
           <div v-bind:style="styleComentObject">
             <router-view></router-view>
@@ -45,7 +45,7 @@
         styleComentObject: {
           'min-height': document.documentElement.clientHeight-61-35-45+'px',
           background:'#ffffff',
-          padding:'5px 15px'
+          padding:'5px 0px'
         },
         styleContentObject: {
           height: document.documentElement.clientHeight-61-36+'px',
