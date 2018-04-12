@@ -38,7 +38,7 @@
             </router-link>
             <router-link to="/basicInfo/form4">
               <el-menu-item index="0">
-                分页表哥
+                分页表格
               </el-menu-item>
             </router-link>
           </el-submenu>

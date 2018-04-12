@@ -9,9 +9,9 @@ Vue.component("el-table-page",{
         @size-change="handleSizeChange"
         @current-change="handleIndexChange"
         :page-size="pageSize"
-        :page-sizes="[10, 20, 30, 50, 100]"
+        :page-sizes="[15, 30, 50, 100]"
         :current-page="pageIndex"
-        layout="total,sizes, prev, pager, next,jumper"
+        layout="total, prev, pager, next,jumper"
         :total="count">
       </el-pagination>
     </div>`,

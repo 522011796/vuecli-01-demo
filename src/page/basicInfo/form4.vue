@@ -22,7 +22,7 @@
         tableData: [],
         listLoading: false,
         //默认每页数据量
-        pagesize: 10,
+        pagesize: 15,
         //当前页码
         currentPage: 1,
         //查询的页码
