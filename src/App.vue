@@ -5,8 +5,8 @@
     </div>
     <div>
       <div v-bind:style="styleMenuObject" class="menu">
-        <Menu @chgLayout="chgLayout" :menu="menu" :path="path" v-if="menu == 'menu' ? true : false"></Menu>
-        <Menu2 @chgLayout="chgLayout" :menu="menu" :path="path" v-if="menu == 'menu2' ? true : false"></Menu2>
+        <Menu @chgLayout="chgLayout" :menu="menu" :activeShow="activeShow" :path="path" v-if="menu == 'menu' ? true : false"></Menu>
+        <Menu2 @chgLayout="chgLayout" :menu="menu" :activeShow="activeShow" :path="path" v-if="menu == 'menu2' ? true : false"></Menu2>
       </div>
       <div class="content" v-bind:style="{'marginLeft':marginLeft}">
         <div v-bind:style="styleContentObject">
@@ -31,6 +31,7 @@
       return {
         path:'/',
         menu:'menu',
+        activeShow:'',
         isCollapse: false,
         marginLeft: '200px',
         styleMenuObject: {
@@ -54,6 +55,9 @@
       },
       chgMenu: function (val,path) {
         this.menu = val;
+        var index = path .lastIndexOf("\/");
+        var str  = path .substring(index + 1, path.length);
+        this.activeShow = str;
         this.$router.push(path);
       }
     }

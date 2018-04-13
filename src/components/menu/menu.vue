@@ -8,12 +8,13 @@
         <el-menu
           router
           :unique-opened="true"
-          :default-active="activeIndex"
+          :default-active="activeShow ? activeShow : activeIndex"
+          @select="selIndex"
           class="el-menu-vertical-demo"
           @open="handleOpen"
           @close="handleClose">
           <router-link to="/">
-            <el-menu-item index="0">
+            <el-menu-item index="index">
               <i class="fa fa-home fa-fw"></i>
               首页
             </el-menu-item>
@@ -24,27 +25,27 @@
               <span>基础信息</span>
             </template>
             <router-link to="/basicInfo/intro">
-              <el-menu-item index="1-1">
+              <el-menu-item index="intro">
                 静态表单
               </el-menu-item>
             </router-link>
             <router-link to="/basicInfo/form2">
-              <el-menu-item index="1-2">
+              <el-menu-item index="form2">
                 动态表单
               </el-menu-item>
             </router-link>
             <router-link to="/basicInfo/form3">
-              <el-menu-item index="1-3">
+              <el-menu-item index="form3">
                 表单验证
               </el-menu-item>
             </router-link>
             <router-link to="/basicInfo/form4">
-              <el-menu-item index="1-4">
+              <el-menu-item index="form4">
                 分页表格
               </el-menu-item>
             </router-link>
             <router-link to="/basicInfo/tab">
-              <el-menu-item index="1-5">
+              <el-menu-item index="tab">
                 标签页
               </el-menu-item>
             </router-link>
@@ -93,13 +94,16 @@
 
 <script>
   export default {
-    props:['menu'],
+    props:['menu','activeShow'],
     data() {
       return {
-        activeIndex:'',
+        activeIndex:'index',
         isCollapse: false,
         asideWidth:'200px'
       };
+    },
+    created(){
+      this.activeIndex = sessionStorage.getItem("menu");
     },
     methods: {
       handleOpen(key, keyPath) {
@@ -115,6 +119,9 @@
       showMenu(i,status){
         //console.log(i.currentTarget.getElementsByTagName("ul")[0].style.display);
         i.currentTarget.getElementsByTagName('ul')[0].style.display=status?'block':'none';
+      },
+      selIndex(key,item){
+        sessionStorage.setItem("menu",key);
       }
     }
   }

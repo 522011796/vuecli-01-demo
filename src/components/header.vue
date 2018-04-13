@@ -1,6 +1,7 @@
 <template>
   <div>
     <el-menu :default-active="activeIndex"
+             @select="selIndex"
              class="el-menu-demo"
              mode="horizontal"
              background-color="#545c64"
@@ -28,9 +29,15 @@
         href : ''
       };
     },
+    created(){
+      this.activeIndex = sessionStorage.getItem("header");
+    },
     methods :{
       jumpHref(val,path){
         this.$emit('chgMenu', val,path);
+      },
+      selIndex(key,item){
+        sessionStorage.setItem("header",key);
       }
     }
   }
