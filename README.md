@@ -1,3 +1,5 @@
+demo演示地址：https://522011796.github.io/vuecli-01-demo/dist/index.html#/
+
 # vuecli-00-demo
 
 > A Vue.js project
