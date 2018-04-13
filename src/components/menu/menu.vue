@@ -1,10 +1,10 @@
 <template>
   <div>
-    <el-row class="tac" v-bind:style="{width:asideWidth}"  v-show="!isCollapse">
+    <el-row class="tac" v-bind:style="{width:asideWidth}"  v-show="!isCollapse" v-if="menu == 'menu' ? true : false">
       <div v-bind:style="{width:asideWidth}" style="text-align: center;background: #f0f0f0" @click="closeAndOpen">
         <i class="fa fa-reorder"></i>
       </div>
-      <el-col :span="24" v-if="menu == 'menu' ? true : false">
+      <el-col :span="24">
         <el-menu
           router
           :unique-opened="true"
@@ -51,43 +51,54 @@
           </el-submenu>
         </el-menu>
       </el-col>
+    </el-row>
 
-      <el-col :span="24" v-if="menu == 'menu2' ? true : false">
+    <el-row class="tac" v-bind:style="{width:asideWidth}"  v-show="!isCollapse" v-if="menu == 'menu2' ? true : false">
+      <div v-bind:style="{width:asideWidth}" style="text-align: center;background: #f0f0f0" @click="closeAndOpen">
+        <i class="fa fa-reorder"></i>
+      </div>
+      <el-col :span="24">
         <el-menu
           router
-          default-active="2"
+          :unique-opened="true"
+          :default-active="activeIndex"
           class="el-menu-vertical-demo"
           @open="handleOpen"
           @close="handleClose">
           <router-link to="/">
-            <el-menu-item index="2">
+            <el-menu-item index="0">
               <i class="fa fa-home fa-fw"></i>
               首页2
             </el-menu-item>
           </router-link>
-          <el-submenu index="3">
+          <el-submenu index="1">
             <template slot="title">
               <i class="fa fa-file fa-fw"></i>
               <span>基础信息2</span>
             </template>
             <router-link to="/basicInfo/intro">
-              <el-menu-item index="3-1">
+              <el-menu-item index="1-1">
                 静态表单2
               </el-menu-item>
             </router-link>
             <router-link to="/basicInfo/form2">
-              <el-menu-item index="3-2">
+              <el-menu-item index="1-2">
                 动态表单2
               </el-menu-item>
             </router-link>
             <router-link to="/basicInfo/form3">
-              <el-menu-item index="3-3">
+              <el-menu-item index="1-3">
                 表单验证2
               </el-menu-item>
             </router-link>
             <router-link to="/basicInfo/form4">
-              <el-menu-item index="3-4">
+              <el-menu-item index="1-4">
                 分页表格2
+              </el-menu-item>
+            </router-link>
+            <router-link to="/basicInfo/tab">
+              <el-menu-item index="1-5">
+                标签页2
               </el-menu-item>
             </router-link>
           </el-submenu>
@@ -138,7 +149,7 @@
     props:['menu'],
     data() {
       return {
-        activeIndex:'0',
+        activeIndex:'',
         isCollapse: false,
         asideWidth:'200px'
       };
@@ -155,10 +166,10 @@
     },
     methods: {
       handleOpen(key, keyPath) {
-        console.log(key, keyPath);
+        console.log(key+"--"+keyPath);
       },
       handleClose(key, keyPath) {
-        console.log(key, keyPath);
+        console.log(key+"--"+keyPath);
       },
       closeAndOpen() {
         this.isCollapse = !this.isCollapse;

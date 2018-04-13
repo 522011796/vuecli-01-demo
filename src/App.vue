@@ -60,6 +60,8 @@
       },
       chgMenu: function (val) {
         this.menu = val;
+        //this.$store.remove('menuItem');
+        this.$store.set('menuSel', val);
       }
     }
   }

@@ -10,6 +10,7 @@ import moment from 'moment';
 import VueI18n from 'vue-i18n';
 import Validation from './validate/validation';
 import pagination from './assets/plugin/pagination';
+import store from 'store';
 
 //表单验证插件
 Vue.use(Validation);
@@ -23,6 +24,8 @@ const i18n = new VueI18n({
     'zh-CN': require('./lang/zh'),   // 中文语言包
   }
 });
+
+Vue.prototype.$store = store
 
 //时间格式化插件
 Vue.prototype.$moment = moment
