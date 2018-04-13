@@ -59,6 +59,7 @@
         var str  = path .substring(index + 1, path.length);
         this.activeShow = str;
         this.$router.push(path);
+        sessionStorage.removeItem("menu");
       }
     }
   }
