@@ -7,6 +7,7 @@ import Form2 from '@/page/basicInfo/form2'
 import Form3 from '@/page/basicInfo/form3'
 import Form4 from '@/page/basicInfo/form4'
 import Tab from '@/page/basicInfo/tab'
+import Highchart from '@/page/basicInfo/highchart'
 
 Vue.use(Router)
 
@@ -30,6 +31,9 @@ export default new Router({
     }, {
       path: '/basicInfo/tab',
       component: Tab
+    }, {
+      path: '/basicInfo/highchart',
+      component: Highchart
     }, {
       path: '/basicInfo/form2/content/:id',
       component: Content

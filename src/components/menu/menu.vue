@@ -49,6 +49,11 @@
                 标签页
               </el-menu-item>
             </router-link>
+            <router-link to="/basicInfo/highchart">
+              <el-menu-item index="highchart">
+                hightchart
+              </el-menu-item>
+            </router-link>
           </el-submenu>
         </el-menu>
       </el-col>

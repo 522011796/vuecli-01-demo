@@ -11,6 +11,10 @@ import VueI18n from 'vue-i18n';
 import Validation from './validate/validation';
 import pagination from './assets/plugin/pagination';
 import store from 'store';
+import echarts from 'echarts'
+
+// 引入echarts
+Vue.prototype.$echarts = echarts;
 
 //表单验证插件
 Vue.use(Validation);
