@@ -5,17 +5,10 @@
     </div>
     <div>
       <div v-bind:style="styleMenuObject" class="menu">
-        <Menu @chgLayout="chgLayout" :menu="menu" :path="path"></Menu>
+        <Menu @chgLayout="chgLayout" :menu="menu" :path="path" v-if="menu == 'menu' ? true : false"></Menu>
+        <Menu2 @chgLayout="chgLayout" :menu="menu" :path="path" v-if="menu == 'menu2' ? true : false"></Menu2>
       </div>
       <div class="content" v-bind:style="{'marginLeft':marginLeft}">
-        <!--<div class="breadcrumb">
-          <el-breadcrumb separator-class="el-icon-arrow-right">
-            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-            <el-breadcrumb-item></el-breadcrumb-item>
-            <el-breadcrumb-item></el-breadcrumb-item>
-            <el-breadcrumb-item></el-breadcrumb-item>
-          </el-breadcrumb>
-        </div>-->
         <div v-bind:style="styleContentObject">
           <div v-bind:style="styleComentObject">
             <router-view></router-view>
@@ -31,11 +24,12 @@
 <script>
   import Header from './components/header'
   import Menu from './components/menu/menu'
+  import Menu2 from './components/menu/menu2'
   export default {
-    components: { Header,Menu },
+    components: { Header,Menu,Menu2 },
     data() {
       return {
-        path:'home',
+        path:'/',
         menu:'menu',
         isCollapse: false,
         marginLeft: '200px',
@@ -58,10 +52,9 @@
       chgLayout: function(item) {
         this.marginLeft = item ? '60px' : '200px';
       },
-      chgMenu: function (val) {
+      chgMenu: function (val,path) {
         this.menu = val;
-        //this.$store.remove('menuItem');
-        this.$store.set('menuSel', val);
+        this.$router.push(path);
       }
     }
   }

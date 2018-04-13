@@ -7,10 +7,10 @@
              text-color="#fff"
              active-text-color="#ffd04b">
       <el-menu-item index="0" style="width: 200px"></el-menu-item>
-      <el-menu-item index="1" @click="jumpHref('menu')">
+      <el-menu-item index="1" @click="jumpHref('menu','/')">
         处理中心
       </el-menu-item>
-      <el-menu-item index="2" @click="jumpHref('menu2')">
+      <el-menu-item index="2" @click="jumpHref('menu2','/basicInfo/form2')">
         我的工作台
       </el-menu-item>
       <el-menu-item index="3">消息中心</el-menu-item>
@@ -29,8 +29,8 @@
       };
     },
     methods :{
-      jumpHref(val){
-        this.$emit('chgMenu', val);
+      jumpHref(val,path){
+        this.$emit('chgMenu', val,path);
       }
     }
   }

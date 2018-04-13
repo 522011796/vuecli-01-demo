@@ -15,37 +15,37 @@
           <router-link to="/">
             <el-menu-item index="0">
               <i class="fa fa-home fa-fw"></i>
-              首页
+              首页2
             </el-menu-item>
           </router-link>
           <el-submenu index="1">
             <template slot="title">
               <i class="fa fa-file fa-fw"></i>
-              <span>基础信息</span>
+              <span>基础信息2</span>
             </template>
             <router-link to="/basicInfo/intro">
               <el-menu-item index="1-1">
-                静态表单
+                静态表单2
               </el-menu-item>
             </router-link>
             <router-link to="/basicInfo/form2">
               <el-menu-item index="1-2">
-                动态表单
+                动态表单2
               </el-menu-item>
             </router-link>
             <router-link to="/basicInfo/form3">
               <el-menu-item index="1-3">
-                表单验证
+                表单验证2
               </el-menu-item>
             </router-link>
             <router-link to="/basicInfo/form4">
               <el-menu-item index="1-4">
-                分页表格
+                分页表格2
               </el-menu-item>
             </router-link>
             <router-link to="/basicInfo/tab">
               <el-menu-item index="1-5">
-                标签页
+                标签页2
               </el-menu-item>
             </router-link>
           </el-submenu>
