@@ -51,7 +51,7 @@
             </router-link>
             <router-link to="/basicInfo/highchart">
               <el-menu-item index="highchart">
-                hightchart
+                echarts
               </el-menu-item>
             </router-link>
           </el-submenu>
