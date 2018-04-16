@@ -18,9 +18,9 @@ Vue.prototype.$echarts = echarts;
 
 //表单验证插件
 Vue.use(Validation);
-
 //国际化
 Vue.use(VueI18n);
+
 const i18n = new VueI18n({
   locale: 'zh-CN',    // 语言标识
   //this.$i18n.locale // 通过切换locale的值来实现语言切换

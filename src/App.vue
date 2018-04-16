@@ -36,6 +36,7 @@
         marginLeft: '200px',
         styleMenuObject: {
           height: document.documentElement.clientHeight-63+'px',
+          'overflow-y':'auto',
         },
         styleComentObject: {
           'min-height': document.documentElement.clientHeight-70-40+'px',

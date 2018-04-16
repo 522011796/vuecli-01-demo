@@ -54,6 +54,11 @@
                 echarts
               </el-menu-item>
             </router-link>
+            <router-link to="/basicInfo/draggable">
+              <el-menu-item index="draggable">
+                拖拽
+              </el-menu-item>
+            </router-link>
           </el-submenu>
         </el-menu>
       </el-col>

@@ -8,6 +8,7 @@ import Form3 from '@/page/basicInfo/form3'
 import Form4 from '@/page/basicInfo/form4'
 import Tab from '@/page/basicInfo/tab'
 import Highchart from '@/page/basicInfo/highchart'
+import Draggable from '@/page/basicInfo/draggable'
 
 Vue.use(Router)
 
@@ -37,6 +38,9 @@ export default new Router({
     }, {
       path: '/basicInfo/form2/content/:id',
       component: Content
+    }, {
+      path: '/basicInfo/draggable',
+      component: Draggable
     }
   ]
 })
